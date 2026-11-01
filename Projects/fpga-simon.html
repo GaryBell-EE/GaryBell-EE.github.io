@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+        name="description"
+        content="FPGA Simon Memory Game Project - Gary Bell Engineering Portfolio"
+    />
+    <meta name="author" content="Gary Bell" />
+
+    <title>FPGA Simon Memory Game | Gary Bell</title>
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="../assets/img/favicon.ico"
+    />
+
+    <script
+        src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+        crossorigin="anonymous"
+    ></script>
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+        rel="stylesheet"
+        type="text/css"
+    />
+    <link
+        href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="project-page simon-project-page">
+    <nav class="project-nav">
+        <a href="../index.html#projects" class="project-back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+        </a>
+
+        <span class="project-nav-name">Gary Bell</span>
+    </nav>
+
+    <header class="project-hero">
+        <div class="project-container">
+            <div class="project-hero-grid">
+                <div class="project-hero-text">
+                    <div class="project-label">
+                        Digital Logic &amp; FPGA Design
+                    </div>
+
+                    <h1>FPGA Simon Memory Game</h1>
+
+                    <p class="project-intro">
+                        Designed and implemented a hardware-based Simon memory
+                        game on a Basys 3 FPGA using Verilog and finite-state
+                        control logic.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Verilog</span>
+                        <span>Basys 3 FPGA</span>
+                        <span>Finite State Machine</span>
+                        <span>Vivado</span>
+                    </div>
+                </div>
+
+                <div class="project-hero-image simon-hero-image">
+                    <img
+                        src="../assets/img/fpga-simon.JPG"
+                        alt="Completed FPGA Simon memory game on a Basys 3 board"
+                    />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-container">
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>01</span>
+                <h2>Project Overview</h2>
+            </div>
+
+            <div class="project-two-column">
+                <div>
+                    <p>
+                        The project recreates the Simon memory game as a digital
+                        hardware system. The FPGA generates a sequence, presents
+                        it through the illuminated buttons, reads the player's
+                        response, and checks each input before advancing the game.
+                    </p>
+
+                    <p>
+                        The design combines game logic with physical inputs and
+                        outputs, including the button panel, LCD, seven-segment
+                        display, and speaker.
+                    </p>
+                </div>
+
+                <div class="project-info-card">
+                    <div class="project-info-item">
+                        <span>Platform</span>
+                        <strong>Digilent Basys 3 FPGA</strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Hardware Language</span>
+                        <strong>Verilog</strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Development Tool</span>
+                        <strong>Xilinx Vivado</strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Design Method</span>
+                        <strong>Finite State Machine</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>02</span>
+                <h2>Digital Logic Architecture</h2>
+            </div>
+
+            <p>
+                The design separates the main game sequence into clear hardware
+                stages, keeping the control logic organized and each interface
+                independently testable. A finite state machine controls the
+                transitions between presenting the sequence, reading the
+                player's response, and comparing each input. This structure
+                gives each part of the game a defined role in the overall flow.
+            </p>
+
+            <div class="simon-logic-flow" aria-label="Simon game Verilog modules">
+                <div class="simon-flow-step">
+                    <span>TOP.V</span>
+                    <strong>Game Control</strong>
+                    <small>The top-level state machine manages rounds, sequence playback, player input, and game-over decisions.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>PRNG.V / LFSR.V</span>
+                    <strong>Sequence Generation</strong>
+                    <small>Random sequence logic supplies the values used to build the pattern for each round.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>DEBOUNCER.V</span>
+                    <strong>Button Inputs</strong>
+                    <small>Debouncing cleans up the physical button signals before the game logic reads the player's response.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>LED_CTRL.V</span>
+                    <strong>LED Control</strong>
+                    <small>LED control connects the game logic to the illuminated buttons used to show the pattern.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>LCD_CTRL.V / LCD_STRING.V</span>
+                    <strong>LCD Interface</strong>
+                    <small>Dedicated LCD modules handle display control and text alongside the game.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>SEG_CTRL.V / SEVEN_SEG.V</span>
+                    <strong>Seven-Segment Display</strong>
+                    <small>Display modules control the board's seven-segment interface.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>BINARY_TO_BCD.V / ADD3.V</span>
+                    <strong>Number Conversion</strong>
+                    <small>Conversion logic supports the display of numerical information.</small>
+                </div>
+                <div class="simon-flow-step">
+                    <span>SPEAKERTONE.V</span>
+                    <strong>Audio Output</strong>
+                    <small>A speaker module provides the game's audio output.</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>03</span>
+                <h2>Verilog Implementation</h2>
+            </div>
+
+            <p>
+                The final design was divided into Verilog modules for the game
+                state machine, sequence generation, button input, LCD control,
+                seven-segment display, and audio output. Dividing the design
+                into modules helped organize the different hardware functions
+                and connect them through the main game logic. Button debouncing
+                also helps the system read a press as a single input.
+            </p>
+
+            <div class="simon-code-panel">
+                <div class="simon-media-header">
+                    <div>
+                        <span>Control Logic</span>
+                        <h3>Vivado Project &amp; Verilog Source</h3>
+                    </div>
+
+                    <span class="simon-media-type">FPGA Implementation</span>
+                </div>
+
+                <img
+                    src="../assets/img/simoncode.png"
+                    alt="Simon memory game Verilog project in Xilinx Vivado"
+                />
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>04</span>
+                <h2>Working Prototype</h2>
+            </div>
+
+            <div class="project-result-box">
+                <div class="project-result-number">
+                    FPGA
+                    <span>Simon Game</span>
+                </div>
+
+                <div class="project-result-text">
+                    <h3>Complete Hardware Demonstration</h3>
+
+                    <p>
+                        The finished system runs the Simon game on the Basys 3
+                        board and coordinates the controls, illuminated buttons,
+                        displays, and audio as one working prototype. This project
+                        gave me experience connecting digital logic to physical
+                        inputs and outputs and building a complete interactive
+                        system in Verilog.
+                    </p>
+                </div>
+            </div>
+
+            <div class="simon-video-panel">
+                <div class="simon-media-header simon-video-header">
+                    <div>
+                        <span>Project Demonstration</span>
+                        <h3>Simon Game in Operation</h3>
+                    </div>
+                </div>
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    poster="../assets/img/fpga-simon.JPG"
+                >
+                    <source
+                        src="../assets/video/Simonvideo.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video element.
+                </video>
+            </div>
+        </section>
+
+        <div class="project-bottom-nav">
+            <a
+                href="../index.html#projects"
+                class="btn btn-primary project-return-button"
+            >
+                <i class="fas fa-arrow-left"></i>
+                Back to All Projects
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

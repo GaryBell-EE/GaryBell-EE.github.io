@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Photoplethysmography signal measurement project by Gary Bell." />
+    <meta name="author" content="Gary Bell" />
+    <title>PPG Signal Measurement | Gary Bell</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+<body class="project-page ppg-page">
+    <nav class="project-nav">
+        <a href="../index.html#projects" class="project-back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <span class="project-nav-name">Gary Bell</span>
+    </nav>
+
+    <header class="project-hero">
+        <div class="project-container project-hero-grid">
+            <div class="project-hero-text">
+                <div class="project-label">Electronics &amp; Signal Processing</div>
+                <h1>PPG Signal Measurement</h1>
+                <p class="project-intro">Designed and built an analog circuit to detect a fingertip pulse, amplify and filter the signal, and display the result.</p>
+                <div class="project-tags"><span>Analog Circuits</span><span>Signal Conditioning</span><span>Sensor Design</span><span>Oscilloscope</span></div>
+            </div>
+            <div class="project-hero-image ppg-hero-image">
+                <img src="../assets/img/ppg-project.JPG" alt="Fingertip sensor and PPG circuit connected to an oscilloscope" />
+            </div>
+        </div>
+    </header>
+
+    <main class="project-container">
+        <section class="project-section">
+            <div class="project-section-title"><span>01</span><h2>Project Overview</h2></div>
+            <div class="project-two-column">
+                <div>
+                    <p>The goal of this project was to measure a photoplethysmography (PPG) signal from a fingertip. PPG uses changes in light passing through tissue to observe the small variations associated with blood flow during each heartbeat.</p>
+                    <p>I built and tested an analog circuit to amplify and filter the sensor signal, then used comparators to drive an LED display. I observed the resulting pulse waveform on an oscilloscope.</p>
+                </div>
+                <div class="project-info-card">
+                    <div class="project-info-item"><span>Measurement</span><strong>Fingertip PPG</strong></div>
+                    <div class="project-info-item"><span>Sensor</span><strong>LED &amp; light-dependent resistor</strong></div>
+                    <div class="project-info-item"><span>Signal conditioning</span><strong>Amplification &amp; filtering</strong></div>
+                    <div class="project-info-item"><span>Output</span><strong>LED display &amp; oscilloscope</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title"><span>02</span><h2>Sensor &amp; Circuit Design</h2></div>
+            <p>A 3D-printed, spring-loaded clamp holds a fingertip between an LED and a light-dependent resistor (LDR). Changes in blood volume alter the light reaching the LDR, changing its resistance and the voltage produced by the sensor divider. The clamp helps position the sensor and reduce outside light.</p>
+            <div class="ppg-stage-grid">
+                <div><span>01</span><h3>Optical Sensing</h3><p>An LED and light-dependent resistor form the fingertip sensing interface.</p></div>
+                <div><span>02</span><h3>Amplification</h3><p>A buffered 4.5 V virtual ground provides a reference for two inverting op-amp stages powered by a single 9 V supply.</p></div>
+                <div><span>03</span><h3>Filtering</h3><p>A coupling capacitor removes the DC component; an RC low-pass filter reduces high-frequency noise.</p></div>
+                <div><span>04</span><h3>Visual Output</h3><p>A resistor ladder and adjustable comparator thresholds drive LEDs as the pulse voltage changes.</p></div>
+            </div>
+            <div class="ppg-media-grid">
+                <figure class="ppg-media-card"><img src="../assets/img/IMG_6344.jpeg" alt="Inside the fingertip clamp, showing the LED and light-dependent resistor" loading="lazy" /><figcaption>Fingertip sensor: the LED and light-dependent resistor face each other across the finger.</figcaption></figure>
+                <figure class="ppg-media-card"><img src="../assets/img/IMG_6349.jpg" alt="PPG breadboard circuit with oscilloscope in the background" loading="lazy" /><figcaption>The breadboard circuit and oscilloscope during testing.</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title"><span>03</span><h2>Circuit Schematic</h2></div>
+            <p>The circuit uses a buffered midpoint reference and two inverting gain stages with theoretical gains of -10 and -100. The 33 kΩ / 1 µF low-pass filter has a calculated cutoff of 4.82 Hz. A resistor ladder and adjustable thresholds feed four comparators for the LED display.</p>
+            <figure class="ppg-schematic">
+                <a href="../assets/img/PPG_Project_Schematic_final.pdf" target="_blank" rel="noopener" aria-label="Open the full PPG circuit schematic PDF">
+                    <img src="../assets/img/ppg-schematic.png" alt="PPG circuit schematic showing sensor, amplifier stages, low-pass filter, and comparator LED outputs" loading="lazy" />
+                </a>
+                <figcaption>PPG circuit schematic. <a href="../assets/img/PPG_Project_Schematic_final.pdf" target="_blank" rel="noopener">Open the full-size PDF <i class="fas fa-arrow-up-right-from-square"></i></a></figcaption>
+            </figure>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title"><span>04</span><h2>Testing &amp; Result</h2></div>
+            <div class="project-result-box">
+                <div class="project-result-number">PPG<span>Pulse Signal</span></div>
+                <div class="project-result-text"><h3>Fingertip Pulse Detection</h3><p>The completed circuit produced a repeating pulse waveform visible on the oscilloscope. The demonstration shows the sensor, circuit, and output working together.</p></div>
+            </div>
+            <p>Testing showed how the circuit's actual performance compared with its calculated behavior. A 1.2 Hz test signal produced an overall gain of approximately 635 V/V, below the theoretical gain of 1,000 V/V. The finished circuit nevertheless produced a clear pulse waveform from the fingertip sensor.</p>
+            <div class="ppg-media-grid ppg-results">
+                <figure class="ppg-media-card"><img src="../assets/img/IMG_6325.jpeg" alt="Oscilloscope displaying a repeating PPG waveform" loading="lazy" /><figcaption>Measured pulse waveform on the oscilloscope.</figcaption></figure>
+                <figure class="ppg-media-card"><video controls playsinline preload="metadata" poster="../assets/img/ppg-project.JPG"><source src="../assets/video/PPG_FINAL1.mp4" type="video/mp4" />Your browser does not support video playback.</video><figcaption>Demonstration of the completed PPG circuit.</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title"><span>05</span><h2>Challenges &amp; Improvements</h2></div>
+            <p>The measured gain was lower than the theoretical value, particularly in the second stage. Increasing resistor ratios and trying another IC produced little improvement in the pulse output, so I looked at the sensor setup as well as the amplifier.</p>
+            <p>Ambient light and finger movement had a clear effect. The output reached about 1.5–2.0 V peak in darkness, compared with roughly 0.8–1.0 V peak during earlier testing. Careful finger placement and potentiometer adjustment also improved the LED display. These observations pointed to light leakage and signal stability as important limitations.</p>
+            <p>A better light-sealed clamp with more consistent finger positioning would improve the sensor interface. A PCB could also provide more consistent connections than the breadboard, making a small-signal circuit easier to troubleshoot.</p>
+        </section>
+        <section class="project-section">
+            <div class="project-section-title"><span>06</span><h2>What I Learned</h2></div>
+            <p>This project brought circuit analysis into a practical measurement system. I gained experience with optical sensing, virtual grounds, op-amp gain, filtering, comparator thresholds, and oscilloscope measurements. Comparing calculations with the working circuit also showed me the importance of testing the sensor and its surroundings alongside the electronics.</p>
+        </section>
+        <div class="project-bottom-nav"><a href="../index.html#projects" class="btn btn-primary project-return-button"><i class="fas fa-arrow-left"></i> Back to All Projects</a></div>
+    </main>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

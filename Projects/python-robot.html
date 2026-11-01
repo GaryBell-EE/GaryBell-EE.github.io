@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+        name="description"
+        content="XRP Autonomous Robot Project - Gary Bell Engineering Portfolio"
+    />
+    <meta name="author" content="Gary Bell" />
+
+    <title>XRP Autonomous Robot | Gary Bell</title>
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="../assets/img/favicon.ico"
+    />
+
+    <script
+        src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+        crossorigin="anonymous"
+    ></script>
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+        rel="stylesheet"
+        type="text/css"
+    />
+    <link
+        href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="project-page robot-project-page">
+    <nav class="project-nav">
+        <a href="../index.html#projects" class="project-back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Portfolio
+        </a>
+
+        <span class="project-nav-name">Gary Bell</span>
+    </nav>
+
+    <header class="project-hero robot-project-hero">
+        <div class="project-container">
+            <div class="project-hero-grid">
+                <div class="project-hero-text">
+                    <div class="project-label">
+                        Autonomous Robotics &amp; Embedded Systems
+                    </div>
+
+                    <h1>XRP Autonomous Robot</h1>
+
+                    <p class="project-intro">
+                        Built and programmed an XRP robot in Python to navigate
+                        a changing three-zone maze, read a color target, find the
+                        matching light, and return to the starting area.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Raspberry Pi&reg; RP2350B</span>
+                        <span>Finite State Machine</span>
+                        <span>Hardware Components</span>
+                    </div>
+                </div>
+
+                <div class="project-hero-image robot-hero-image">
+                    <img
+                        src="../assets/img/python-robot.png"
+                        alt="Completed XRP autonomous robot in the competition maze"
+                    />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-container">
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>01</span>
+                <h2>Project Overview</h2>
+            </div>
+
+            <div class="project-two-column">
+                <div class="robot-overview-copy">
+                    <p>
+
+                       This freshman engineering project focused on the design and programming of an autonomous robot. 
+                       I learned Python programming while also developing an understanding of
+                        the robot’s various peripherals and sensors.
+                        The goal was to program the robot to autonomously navigate a three-zone 
+                            maze and complete a series of tasks. Because the maze configuration changed before each run, 
+                            the robot had to respond to its environment rather than follow a fixed path. It was required to identify a color target in Zone 2, 
+                            locate the corresponding light in Zone 3, and then return to the starting area in Zone 1.
+                        
+                    
+                    </p>
+                </div>
+
+                <div class="project-info-card">
+                    <div class="project-info-item">
+                        <span>Microcontroller</span>
+                        <strong>Raspberry Pi&reg; RP2350B</strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Architecture</span>
+                        <strong>ARM Cortex-M33 </strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Environment</span>
+                        <strong>Randomized Three-Zone Maze</strong>
+                    </div>
+
+                    <div class="project-info-item">
+                        <span>Software</span>
+                        <strong>Python</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>02</span>
+                <h2>Robot Control System</h2>
+            </div>
+
+            <p>
+              My approach to this project centered on a state-machine architecture. 
+              Program organization was critical because I needed the robot’s behavior to be easy to debug, 
+              reliable, and adaptable as the maze configuration changed.
+The control logic used input from the ultrasonic and IR sensors to determine the robot’s 
+surroundings and update the motor commands accordingly. This allowed the robot to continuously 
+respond to sensor feedback and autonomously navigate the maze without relying on a fixed sequence of movements.
+            </p>
+
+            <div class="robot-control-flow" aria-label="Robot control loop">
+                <div class="robot-flow-step">
+                    <span>01</span>
+                    <strong>Read Sensors</strong>
+                    <small>Interpret sensor data</small>
+                </div>
+
+                <div class="robot-flow-step">
+                    <span>02</span>
+                    <strong>Check State</strong>
+                    <small>Choose the next action</small>
+                </div>
+
+                <div class="robot-flow-step">
+                    <span>03</span>
+                    <strong>Drive</strong>
+                    <small>Update the motors</small>
+                </div>
+
+                <div class="robot-flow-step">
+                    <span>04</span>
+                    <strong>Change State</strong>
+                    <small>Continue through the maze</small>
+                </div>
+            </div>
+
+            <div class="robot-media-grid">
+                <article class="robot-media-card">
+                    <div class="robot-media-heading">
+                        <span>Embedded Controller</span>
+                        <h3>Raspberry Pi&reg; RP2350B</h3>
+                    </div>
+
+                    <div class="robot-controller-image">
+                        <img
+                            src="../assets/img/raspberrypi.jpg"
+                            alt="Raspberry Pi controller board"
+                        />
+                    </div>
+
+                    <p class="robot-media-caption">
+                        The RP2350B handled sensor input, state decisions, and
+                        motor control for the robot.
+                    </p>
+                </article>
+
+                <article class="robot-media-card">
+                    <div class="robot-media-heading">
+                        <span>Control Software</span>
+                        <h3>Python State-Machine Program</h3>
+                    </div>
+
+                    <div class="robot-code-image">
+                        <img
+                            src="../assets/img/pythoncode.png"
+                            alt="Python source code for the autonomous robot state machine"
+                        />
+                    </div>
+
+                    <p class="robot-media-caption">
+                        Separate states handled maze navigation, color detection,
+                        light selection, and the return trip while keeping the
+                        program organized and easier to debug.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>03</span>
+                <h2>Challenges</h2>
+            </div>
+
+            <p>
+           The most challenging part of this project was getting the robot to drive straight. Mechanical issues between the motors and wheels caused the robot to consistently pull to the left or right, which made it difficult to accurately test the navigation logic and state-machine behavior.
+
+To correct this, I developed a PID controller that adjusted the motor outputs based on the robot’s heading error. This helped compensate for the uneven drivetrain behavior and allowed the robot to maintain a much straighter path during autonomous navigation.
+
+            </p>
+
+            <p>
+               
+            </p>
+        </section>
+
+        <section class="project-section">
+            <div class="project-section-title">
+                <span>04</span>
+                <h2>Result</h2>
+            </div>
+
+            <div class="project-result-box">
+                <div class="project-result-number">
+                    Complete
+                    <span>Maze Run</span>
+                </div>
+
+                <div class="project-result-text">
+                    <h3>Successful Autonomous Navigation</h3>
+
+                    <p>
+                        The robot successfully navigated the changing three-zone
+                        maze, identified the target color in Zone 2, reached the
+                        matching light in Zone 3, and returned to Zone 1. The
+                        finished project demonstrated reliable sensor-based
+                        navigation and state-machine control on real hardware.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="project-bottom-nav">
+            <a
+                href="../index.html#projects"
+                class="btn btn-primary project-return-button"
+            >
+                <i class="fas fa-arrow-left"></i>
+                Back to All Projects
+            </a>
+        </div>
+    </main>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>
