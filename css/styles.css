@@ -11024,6 +11024,7 @@ section.resume-section .resume-section-content {
 /* Main project page */
 
 .project-page {
+    padding-left: 0;
     background-color: #ffffff;
     color: #495057;
 }
